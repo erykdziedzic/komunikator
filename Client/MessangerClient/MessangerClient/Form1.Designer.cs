@@ -1,4 +1,6 @@
-﻿namespace MessangerClient
+﻿using System;
+
+namespace MessangerClient
 {
     partial class Form1
     {
@@ -28,8 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bwServerConnection = new System.ComponentModel.BackgroundWorker();
-            this.bwConversation = new System.ComponentModel.BackgroundWorker();
+            this.bwServer = new System.ComponentModel.BackgroundWorker();
+            this.bwChat = new System.ComponentModel.BackgroundWorker();
             this.lbConfig = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,21 +46,21 @@
             this.bDel = new System.Windows.Forms.Button();
             this.bIns = new System.Windows.Forms.Button();
             this.tbIP = new System.Windows.Forms.TextBox();
-            this.tb_nickname = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.wbConversation = new System.Windows.Forms.WebBrowser();
+            this.wbChat = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.nudPort)).BeginInit();
             this.SuspendLayout();
             // 
             // bwServerConnection
             // 
-            this.bwServerConnection.WorkerSupportsCancellation = true;
-            this.bwServerConnection.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwServerConnection_DoWork);
+            this.bwServer.WorkerSupportsCancellation = true;
+            this.bwServer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwServerConnection_DoWork);
             // 
             // bwConversation
             // 
-            this.bwConversation.WorkerSupportsCancellation = true;
-            this.bwConversation.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwConversation_DoWork);
+            this.bwChat.WorkerSupportsCancellation = true;
+            this.bwChat.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwConversation_DoWork);
             // 
             // lbConfig
             // 
@@ -218,11 +220,11 @@
             // 
             // tb_nickname
             // 
-            this.tb_nickname.Location = new System.Drawing.Point(388, 7);
-            this.tb_nickname.Margin = new System.Windows.Forms.Padding(2);
-            this.tb_nickname.Name = "tb_nickname";
-            this.tb_nickname.Size = new System.Drawing.Size(105, 20);
-            this.tb_nickname.TabIndex = 22;
+            this.tbName.Location = new System.Drawing.Point(388, 7);
+            this.tbName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbName.Name = "tb_nickname";
+            this.tbName.Size = new System.Drawing.Size(105, 20);
+            this.tbName.TabIndex = 22;
             // 
             // label4
             // 
@@ -236,20 +238,20 @@
             // 
             // wbConversation
             // 
-            this.wbConversation.Location = new System.Drawing.Point(12, 145);
-            this.wbConversation.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbConversation.Name = "wbConversation";
-            this.wbConversation.Size = new System.Drawing.Size(491, 325);
-            this.wbConversation.TabIndex = 24;
+            this.wbChat.Location = new System.Drawing.Point(12, 145);
+            this.wbChat.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbChat.Name = "wbConversation";
+            this.wbChat.Size = new System.Drawing.Size(491, 325);
+            this.wbChat.TabIndex = 24;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 654);
-            this.Controls.Add(this.wbConversation);
+            this.Controls.Add(this.wbChat);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tb_nickname);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbIP);
             this.Controls.Add(this.bIns);
             this.Controls.Add(this.bDel);
@@ -273,6 +275,26 @@
 
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void tbIP_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void nudPort_ValueChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private System.Windows.Forms.ListBox lbConfig;
@@ -285,15 +307,15 @@
         private System.Windows.Forms.Button bItalic;
         private System.Windows.Forms.TextBox tbEdit;
         private System.Windows.Forms.Button bSend;
-        private System.ComponentModel.BackgroundWorker bwServerConnection;
-        private System.ComponentModel.BackgroundWorker bwConversation;
+        private System.ComponentModel.BackgroundWorker bwServer;
+        private System.ComponentModel.BackgroundWorker bwChat;
         private System.Windows.Forms.Button bBr;
         private System.Windows.Forms.Button bDel;
         private System.Windows.Forms.Button bIns;
         private System.Windows.Forms.TextBox tbIP;
-        private System.Windows.Forms.TextBox tb_nickname;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.WebBrowser wbConversation;
+        private System.Windows.Forms.WebBrowser wbChat;
     }
 }
 
