@@ -34,15 +34,15 @@ namespace Messenger_Server
 
         private void ClearWebBrowser()
         {
-            messages_wb.Navigate("about:blank");
-            HtmlDocument doc = messages_wb.Document;
+            webBrowserMain.Navigate("about:blank");
+            HtmlDocument doc = webBrowserMain.Document;
             doc.Write(String.Empty);
-            messages_wb.DocumentText = "<!DOCTYPE html> <html> <head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> </head> <body> </body></html>";
+            webBrowserMain.DocumentText = "<!DOCTYPE html> <html> <head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> </head> <body> </body></html>";
         }
 
         private void SetTextHTML(string text)
         {
-            if (messages_wb.InvokeRequired)
+            if (webBrowserMain.InvokeRequired)
             {
                 Form.SetTextCallBack method = new Form.SetTextCallBack(SetTextHTML);
                 base.Invoke(method, new object[]
@@ -52,7 +52,7 @@ namespace Messenger_Server
             }
             else
             {
-                messages_wb.Document.Write(text);
+                webBrowserMain.Document.Write(text);
             }
         }
 
@@ -104,7 +104,7 @@ namespace Messenger_Server
 
         private void SetText(string text)
         {
-            if (lb_logs.InvokeRequired)
+            if (listBox_Console.InvokeRequired)
             {
                 Form.SetTextCallBack method = new Form.SetTextCallBack(SetText);
                 base.Invoke(method, new object[]
@@ -114,22 +114,22 @@ namespace Messenger_Server
             }
             else
             {
-                lb_logs.Items.Add("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: "+text);
-                lb_logs.SelectedIndex = lb_logs.Items.Count - 1;
-                lb_logs.SelectedIndex = -1;
+                listBox_Console.Items.Add("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: "+text);
+                listBox_Console.SelectedIndex = listBox_Console.Items.Count - 1;
+                listBox_Console.SelectedIndex = -1;
             }
         }
 
         private void SetScroll()
         {
-            if (messages_wb.InvokeRequired)
+            if (webBrowserMain.InvokeRequired)
             {
                 Form.SetScrollCallBack method = new Form.SetScrollCallBack(SetScroll);
                 base.Invoke(method);
             }
             else
             {
-                messages_wb.Document.Body.ScrollIntoView(false);
+                webBrowserMain.Document.Body.ScrollIntoView(false);
             }
         }
 
@@ -138,16 +138,15 @@ namespace Messenger_Server
         {
             if (!server_listening)
             {
-                SetText("Inicjacja serwera!");
-                SetText("Czekam na klientów ...");
+                SetText("Server Started, awaiting...");
                 ClearWebBrowser();
-                bgw_init_server.RunWorkerAsync();
+                backgroundWorkerStartServer.RunWorkerAsync();
             }
             else
             {
                 server_listening = false;
                 server.Stop();
-                bgw_init_server.CancelAsync();
+                backgroundWorkerStartServer.CancelAsync();
                 if(clientStream != null)
                 {
                     foreach (KeyValuePair<string, NetworkStream> entry in clientStream)
@@ -160,31 +159,31 @@ namespace Messenger_Server
                     }
                 }
 
-                SetText("Zakończono pracę serwera!");
-                btn_start.Invoke(new MethodInvoker(delegate () { btn_start.Text = "Start"; }));
+                SetText("Server closed");
+                buttonStart.Invoke(new MethodInvoker(delegate () { buttonStart.Text = "Start"; }));
                 clientDict = null;
                 clientStream = null;
             }
 
          }
 
-        private void bgw_init_server_DoWork(object sender, DoWorkEventArgs e)
+        private void backgroundWorkerStartServer_DoWork(object sender, DoWorkEventArgs e)
         {
             // Check ip address
             IPAddress adresIP;
             try
             {
-                adresIP = IPAddress.Parse(tb_ip.Text);
+                adresIP = IPAddress.Parse(textBoxAddress.Text);
             }
             catch
             {
-                SetText("Błędny format adresu IP!");
+                SetText("Bad IP format");
                 return;
             }
 
             // Get port
-            int port = System.Convert.ToInt16(n_port.Value);
-            btn_start.Invoke(new MethodInvoker(delegate () { btn_start.Text = "Stop"; }));
+            int port = System.Convert.ToInt16(numericUpDownPort.Value);
+            buttonStart.Invoke(new MethodInvoker(delegate () { buttonStart.Text = "Stop"; }));
             try
             {
                 server_listening = true;
@@ -235,10 +234,10 @@ namespace Messenger_Server
             }
             catch (Exception ex)
             {
-                lb_logs.Invoke(new MethodInvoker(delegate () { lb_logs.Items.RemoveAt(lb_logs.Items.Count - 1); }));
-                SetText("Bład inicjacji serwera!");
+                listBox_Console.Invoke(new MethodInvoker(delegate () { listBox_Console.Items.RemoveAt(listBox_Console.Items.Count - 1); }));
+                SetText("Error, cant start server");
                 if (ex.Message.ToString() == "Operacja zablokowana") return;
-                MessageBox.Show(ex.ToString(), "Błąd");
+                MessageBox.Show(ex.ToString(), "error");
             }
         }
 
@@ -251,7 +250,7 @@ namespace Messenger_Server
             var writer = new BinaryWriter(clientStream[nickname]);
             if (reader.ReadString().Contains("---START---"))
             {
-                SetText("Nawiązano połącznie: [" + IP.ToString() + "]");
+                SetText("Connected: [" + IP.ToString() + "]");
                 try
                 {
                     string message;
@@ -298,15 +297,15 @@ namespace Messenger_Server
                     clientStream.Remove(nickname);
                     //cb_clients.Invoke(new MethodInvoker(delegate () {  cb_clients.Items.Remove(nickname);   }));
                     client.Close();
-                    SetText("Klient się rozłączył");
+                    SetText("Client Disconnected");
                 }
                 catch
                 {
-                    string last_value = lb_logs.Items[lb_logs.Items.Count - 1].ToString();
+                    string last_value = listBox_Console.Items[listBox_Console.Items.Count - 1].ToString();
 
-                    if (!last_value.Contains("Zakończono pracę serwera!"))
+                    if (!last_value.Contains("Server closed"))
                     {
-                        SetText("Klient się rozłączył");
+                        SetText("Client Disconnected");
                     }
                     client.Close();
                 }
@@ -321,21 +320,21 @@ namespace Messenger_Server
 
         private void send_btn_Click(object sender, EventArgs e)
         {
-            if ((string.IsNullOrEmpty(tb_edit.Text) && string.IsNullOrWhiteSpace(tb_edit.Text)) || tb_edit.Text == "\r\n")
+            if ((string.IsNullOrEmpty(textBoxMessage.Text) && string.IsNullOrWhiteSpace(textBoxMessage.Text)) || textBoxMessage.Text == "\r\n")
             {
-                SetText("Pusta wiadomość!");
-                tb_edit.Text = "";
+                SetText("Empty!");
+                textBoxMessage.Text = "";
                 return;
             }
             if (server_listening && clientStream != null)
             {
                 //if ((string)cb_clients.SelectedItem == "Wszyscy")
                 //{
-                    WriteText("Server", tb_edit.Text, Server_color, true);
+                    WriteText("Server", textBoxMessage.Text, Server_color, true);
                     foreach (KeyValuePair<string, NetworkStream> entry in clientStream)
                     {
                         var writer = new BinaryWriter(entry.Value);
-                        writer.Write("Serwer@@@" + tb_edit.Text);
+                        writer.Write("Serwer@@@" + textBoxMessage.Text);
                     }
                 //}
                 //else
@@ -350,44 +349,44 @@ namespace Messenger_Server
             {
                 if(clientStream == null)
                 {
-                    SetText("Brak klientów!");
+                    SetText("No Clients");
                 }
                 else
                 {
-                    SetText("Serwer nie jest włączony!");
+                    SetText("Server is off");
                 }
             }
-            tb_edit.Text = "";
+            textBoxMessage.Text = "";
         }
 
         private void EnterBetweenTag(string tag)
         {
-            string tbText = tb_edit.Text;
+            string tbText = textBoxMessage.Text;
 
-            tb_edit.Invoke(new MethodInvoker(delegate ()
+            textBoxMessage.Invoke(new MethodInvoker(delegate ()
             {
-                tb_edit.Focus();
-                cursorPosition = tb_edit.Text.Length;
+                textBoxMessage.Focus();
+                cursorPosition = textBoxMessage.Text.Length;
             }));
 
-            tb_edit.Invoke(new MethodInvoker(delegate ()
+            textBoxMessage.Invoke(new MethodInvoker(delegate ()
             {
-                tb_edit.Text = tbText.Insert(cursorPosition, tag);
+                textBoxMessage.Text = tbText.Insert(cursorPosition, tag);
             }));
 
             if (tag == "<br>" || tag == "<hr>")
             {
-                tb_edit.Invoke(new MethodInvoker(delegate ()
+                textBoxMessage.Invoke(new MethodInvoker(delegate ()
                 {
-                    tb_edit.Select(cursorPosition + tag.Length, 0);
+                    textBoxMessage.Select(cursorPosition + tag.Length, 0);
                 }));
                 cursorPosition += tag.Length;
             }
             else
             {
-                tb_edit.Invoke(new MethodInvoker(delegate ()
+                textBoxMessage.Invoke(new MethodInvoker(delegate ()
                 {
-                    tb_edit.Select(cursorPosition + tag.Length / 2, 0);
+                    textBoxMessage.Select(cursorPosition + tag.Length / 2, 0);
                 }));
                 cursorPosition += tag.Length / 2;
             }
@@ -424,16 +423,6 @@ namespace Messenger_Server
         private void bIns_Click(object sender, EventArgs e)
         {
             EnterBetweenTag("<ins></ins>");
-        }
-
-        private void n_port_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
