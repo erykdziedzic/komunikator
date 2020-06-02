@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing.Text;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
@@ -28,21 +28,21 @@ namespace MessangerClient
 
 		private delegate void SetScrollCallBack();
 
+		private string IP_ERROR = "Wrong IP format!";
+
 		public Form1()
 		{
 			this.InitializeComponent();
-			ClearWebBrowser();
+			ClearBrowser();
 		}
 
-		private void ClearWebBrowser()
+		private void ClearBrowser()
 		{
 			wbChat.Navigate("about:blank");
 			HtmlDocument doc = wbChat.Document;
 			doc.Write(String.Empty);
 			wbChat.DocumentText = "<!DOCTYPE html> <html> <head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> </head> <body> </body></html>";
 		}
-
-
 
 		private void SetText(string text)
 		{
@@ -56,7 +56,9 @@ namespace MessangerClient
 			}
 			else
 			{
-				this.lbConfig.Items.Add(text);
+				string currentTime = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+				string loggedText = String.Format("[{0}]: {1}", currentTime, text);
+				this.lbConfig.Items.Add(loggedText);
 				lbConfig.SelectedIndex = lbConfig.Items.Count - 1;
 				lbConfig.SelectedIndex = -1;
 			}
@@ -67,10 +69,7 @@ namespace MessangerClient
 			if (this.wbChat.InvokeRequired)
 			{
 				Form1.SetTextCallBack method = new Form1.SetTextCallBack(this.SetTextHTML);
-				base.Invoke(method, new object[]
-				{
-					text
-				});
+				base.Invoke(method, new object[] { text });
 			}
 			else
 			{
@@ -104,7 +103,7 @@ namespace MessangerClient
 			{
 				this.SetTextHTML(string.Concat(new string[]
 {
-			  "<div style=\"float:right; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; margin-bottom: 15px; padding: 10px 15px 5px 15px; width: fit-content; flex-direction: column; background-color: "+color+";\">",
+			  "<div style=\"float:right; font-family: 'Microsoft Sans Serif'; display: flex; margin-bottom: 15px; padding: 10px 15px 5px 15px; width: fit-content; flex-direction: column; background-color: "+color+";\">",
 			  "<div style=\"word-wrap: break-word;  \">",
 			  message,
 			  "</div>",
@@ -120,7 +119,7 @@ namespace MessangerClient
 			{
 				this.SetTextHTML(string.Concat(new string[]
 {
-			  "<div style=\"float:left; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; margin-bottom: 15px; padding: 10px 15px 5px 15px; width: fit-content; flex-direction: column; background-color: "+color+";\">",
+			  "<div style=\"float:left; font-family: 'Microsoft Sans Serif'; display: flex; margin-bottom: 15px; padding: 10px 15px 5px 15px; width: fit-content; flex-direction: column; background-color: "+color+";\">",
 			  "<div style=\"word-wrap: break-word; \">",
 			  message,
 			  "</div>",
@@ -138,33 +137,33 @@ namespace MessangerClient
 
 		private void bwServerConnection_DoWork(object sender, DoWorkEventArgs e)
 		{
-			IPAddress adresIP;
+			IPAddress ipAddress;
 			try
 			{
-				adresIP = IPAddress.Parse(tbIP.Text);
+				ipAddress = IPAddress.Parse(tbIP.Text);
 			}
 			catch
 			{
-				MessageBox.Show("Błędny format adresu IP!", "Błąd");
+				MessageBox.Show(IP_ERROR, "Błąd");
 				return;
 			}
 
 			try
 			{
-				this.client = new TcpClient(adresIP.ToString(), (int)this.nudPort.Value);
+				this.client = new TcpClient(ipAddress.ToString(), (int)this.nudPort.Value);
 				NetworkStream stream = this.client.GetStream();
 				this.reading = new BinaryReader(stream);
 				this.writing = new BinaryWriter(stream);
 				this.writing.Write("---WELCOME---" + tbName.Text);
 				this.writing.Write("---START---");
-				this.SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Autoryzacja...");
+				this.SetText("Authorizing...");
 				this.activeCall = true;
 				this.bStart.Text = "Stop";
 				this.bwChat.RunWorkerAsync();
 			}
 			catch
 			{
-				this.SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Nie połączono");
+				this.SetText("Couldn't connect!");
 				this.activeCall = false;
 				this.bStart.Invoke(new MethodInvoker(delegate ()
 				{
@@ -175,7 +174,7 @@ namespace MessangerClient
 
 		private void bwConversation_DoWork(object sender, DoWorkEventArgs e)
 		{
-			this.SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Autoryzacja udana");
+			this.SetText("Authorized...");
 			try
 			{
 				string message;
@@ -202,7 +201,7 @@ namespace MessangerClient
 						}
 					}
 				}
-				this.SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Przerwano połączenie!");
+				this.SetText("Closed connection!");
 				this.activeCall = false;
 				this.bStart.Invoke(new MethodInvoker(delegate ()
 				{
@@ -212,7 +211,7 @@ namespace MessangerClient
 			}
 			catch
 			{
-				this.SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Połączenie przerwano!");
+				this.SetText("Closed connection!");
 				this.activeCall = false;
 				this.bStart.Invoke(new MethodInvoker(delegate ()
 				{
@@ -228,10 +227,10 @@ namespace MessangerClient
 			{
 				if (string.IsNullOrWhiteSpace(tbName.Text))
 				{
-					SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Błędny format nicku!");
+					SetText("Wrong name format!");
 					return;
 				}
-				ClearWebBrowser();
+				ClearBrowser();
 				this.bwServer.RunWorkerAsync();
 				this.bStart.Text = "Stop";
 				this.activeCall = true;
@@ -258,10 +257,10 @@ namespace MessangerClient
 
 		private void bSend_Click(object sender, EventArgs e)
 		{
-			bool isTextInvalid = string.IsNullOrEmpty(tbEdit.Text) && string.IsNullOrWhiteSpace(tbEdit.Text) || tbEdit.Text == "\r\n";
-			if (isTextInvalid)
+			bool textIsInvalid = string.IsNullOrEmpty(tbEdit.Text) && string.IsNullOrWhiteSpace(tbEdit.Text) || tbEdit.Text == "\r\n";
+			if (textIsInvalid)
 			{
-				SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Pusta wiadomość!");
+				SetText("Empty message!");
 				tbEdit.Text = "";
 				return;
 			}
@@ -273,7 +272,7 @@ namespace MessangerClient
 			}
 			else
 			{
-				this.SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Nie nawiązano połączenia");
+				this.SetText("Couldn't connect!");
 			}
 			this.tbEdit.Text = "";
 		}
@@ -285,7 +284,8 @@ namespace MessangerClient
 			this.tbEdit.Invoke(new MethodInvoker(delegate ()
 			{
 				this.tbEdit.Focus();
-				this.cursorPosition = tbEdit.Text.Length;
+				
+				this.cursorPosition = this.tbEdit.SelectionStart;
 			}));
 
 			this.tbEdit.Invoke(new MethodInvoker(delegate ()

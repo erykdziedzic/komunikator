@@ -366,7 +366,7 @@ namespace Messenger_Server
             textBoxMessage.Invoke(new MethodInvoker(delegate ()
             {
                 textBoxMessage.Focus();
-                cursorPosition = textBoxMessage.Text.Length;
+                cursorPosition = textBoxMessage.SelectionStart;
             }));
 
             textBoxMessage.Invoke(new MethodInvoker(delegate ()

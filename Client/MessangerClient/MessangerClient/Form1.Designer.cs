@@ -52,12 +52,12 @@ namespace MessangerClient
             ((System.ComponentModel.ISupportInitialize)(this.nudPort)).BeginInit();
             this.SuspendLayout();
             // 
-            // bwServerConnection
+            // bwServer
             // 
             this.bwServer.WorkerSupportsCancellation = true;
             this.bwServer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwServerConnection_DoWork);
             // 
-            // bwConversation
+            // bwChat
             // 
             this.bwChat.WorkerSupportsCancellation = true;
             this.bwChat.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwConversation_DoWork);
@@ -67,7 +67,7 @@ namespace MessangerClient
             this.lbConfig.FormattingEnabled = true;
             this.lbConfig.Location = new System.Drawing.Point(12, 33);
             this.lbConfig.Name = "lbConfig";
-            this.lbConfig.Size = new System.Drawing.Size(491, 69);
+            this.lbConfig.Size = new System.Drawing.Size(504, 69);
             this.lbConfig.TabIndex = 0;
             // 
             // label1
@@ -118,7 +118,7 @@ namespace MessangerClient
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(218, 108);
+            this.bStart.Location = new System.Drawing.Point(232, 108);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(81, 31);
             this.bStart.TabIndex = 6;
@@ -155,7 +155,7 @@ namespace MessangerClient
             this.tbEdit.Location = new System.Drawing.Point(12, 517);
             this.tbEdit.Multiline = true;
             this.tbEdit.Name = "tbEdit";
-            this.tbEdit.Size = new System.Drawing.Size(491, 83);
+            this.tbEdit.Size = new System.Drawing.Size(504, 83);
             this.tbEdit.TabIndex = 10;
             this.tbEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEdit_KeyPress);
             this.tbEdit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbEdit_KeyUp);
@@ -164,7 +164,7 @@ namespace MessangerClient
             // bSend
             // 
             this.bSend.FlatAppearance.BorderSize = 2;
-            this.bSend.Location = new System.Drawing.Point(128, 609);
+            this.bSend.Location = new System.Drawing.Point(142, 609);
             this.bSend.Margin = new System.Windows.Forms.Padding(4);
             this.bSend.Name = "bSend";
             this.bSend.Size = new System.Drawing.Size(257, 32);
@@ -176,7 +176,7 @@ namespace MessangerClient
             // bBr
             // 
             this.bBr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBr.Location = new System.Drawing.Point(218, 478);
+            this.bBr.Location = new System.Drawing.Point(232, 478);
             this.bBr.Margin = new System.Windows.Forms.Padding(4);
             this.bBr.Name = "bBr";
             this.bBr.Size = new System.Drawing.Size(81, 32);
@@ -188,7 +188,7 @@ namespace MessangerClient
             // bDel
             // 
             this.bDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bDel.Location = new System.Drawing.Point(333, 478);
+            this.bDel.Location = new System.Drawing.Point(346, 478);
             this.bDel.Margin = new System.Windows.Forms.Padding(4);
             this.bDel.Name = "bDel";
             this.bDel.Size = new System.Drawing.Size(81, 32);
@@ -200,7 +200,7 @@ namespace MessangerClient
             // bIns
             // 
             this.bIns.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bIns.Location = new System.Drawing.Point(422, 478);
+            this.bIns.Location = new System.Drawing.Point(435, 478);
             this.bIns.Margin = new System.Windows.Forms.Padding(4);
             this.bIns.Name = "bIns";
             this.bIns.Size = new System.Drawing.Size(81, 32);
@@ -218,12 +218,12 @@ namespace MessangerClient
             this.tbIP.Text = "25.49.191.102";
             this.tbIP.TextChanged += new System.EventHandler(this.tbIP_TextChanged);
             // 
-            // tb_nickname
+            // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(388, 7);
             this.tbName.Margin = new System.Windows.Forms.Padding(2);
-            this.tbName.Name = "tb_nickname";
-            this.tbName.Size = new System.Drawing.Size(105, 20);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(128, 20);
             this.tbName.TabIndex = 22;
             // 
             // label4
@@ -236,19 +236,19 @@ namespace MessangerClient
             this.label4.Text = "Name:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // wbConversation
+            // wbChat
             // 
             this.wbChat.Location = new System.Drawing.Point(12, 145);
             this.wbChat.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbChat.Name = "wbConversation";
-            this.wbChat.Size = new System.Drawing.Size(491, 325);
+            this.wbChat.Name = "wbChat";
+            this.wbChat.Size = new System.Drawing.Size(504, 325);
             this.wbChat.TabIndex = 24;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 654);
+            this.ClientSize = new System.Drawing.Size(528, 654);
             this.Controls.Add(this.wbChat);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbName);
