@@ -367,7 +367,7 @@ namespace Messenger_Server
             tb_edit.Invoke(new MethodInvoker(delegate ()
             {
                 tb_edit.Focus();
-                cursorPosition = tb_edit.Text.Length;
+                cursorPosition = tb_edit.SelectionStart;
             }));
 
             tb_edit.Invoke(new MethodInvoker(delegate ()

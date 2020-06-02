@@ -284,6 +284,8 @@ namespace MessangerClient
 			this.tbEdit.Invoke(new MethodInvoker(delegate ()
 			{
 				this.tbEdit.Focus();
+				
+				this.cursorPosition = this.tbEdit.SelectionStart;
 			}));
 
 			this.tbEdit.Invoke(new MethodInvoker(delegate ()
