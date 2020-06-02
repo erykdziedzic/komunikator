@@ -1,0 +1,58 @@
+D:\Desktop\Client new\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe.config
+D:\Desktop\Client new\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe
+D:\Desktop\Client new\MessangerClient\MessangerClient\bin\Debug\MessangerClient.pdb
+D:\Desktop\Client new\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csprojAssemblyReference.cache
+D:\Desktop\Client new\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Form1.resources
+D:\Desktop\Client new\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Properties.Resources.resources
+D:\Desktop\Client new\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.GenerateResource.cache
+D:\Desktop\Client new\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.CoreCompileInputs.cache
+D:\Desktop\Client new\MessangerClient\MessangerClient\obj\Debug\MessangerClient.exe
+D:\Desktop\Client new\MessangerClient\MessangerClient\obj\Debug\MessangerClient.pdb
+D:\Desktop\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe.config
+D:\Desktop\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe
+D:\Desktop\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.pdb
+D:\Desktop\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csprojAssemblyReference.cache
+D:\Desktop\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Form1.resources
+D:\Desktop\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Properties.Resources.resources
+D:\Desktop\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.GenerateResource.cache
+D:\Desktop\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.CoreCompileInputs.cache
+D:\Desktop\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.exe
+D:\Desktop\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.pdb
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe.config
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\bin\Debug\MessangerClient.pdb
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csprojAssemblyReference.cache
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Form1.resources
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Properties.Resources.resources
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.GenerateResource.cache
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.CoreCompileInputs.cache
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.exe
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.pdb
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe.config
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\bin\Debug\MessangerClient.pdb
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csprojAssemblyReference.cache
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Form1.resources
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Properties.Resources.resources
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.GenerateResource.cache
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.exe
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client (1)\MessangerClient\MessangerClient\obj\Debug\MessangerClient.pdb
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe.config
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.pdb
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csprojAssemblyReference.cache
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Form1.resources
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Properties.Resources.resources
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.GenerateResource.cache
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.CoreCompileInputs.cache
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.exe
+E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.pdb
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe.config
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.pdb
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csprojAssemblyReference.cache
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Form1.resources
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Properties.Resources.resources
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.GenerateResource.cache
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.exe
+C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.pdb
