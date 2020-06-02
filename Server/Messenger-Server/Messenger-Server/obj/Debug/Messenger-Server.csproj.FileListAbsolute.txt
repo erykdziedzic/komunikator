@@ -65,3 +65,13 @@ E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Serve
 E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Serverbck - Copy\Messenger-Server\Messenger-Server\obj\Debug\Messenger-Server.csproj.CoreCompileInputs.cache
 E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Serverbck - Copy\Messenger-Server\Messenger-Server\obj\Debug\Messenger-Server.exe
 E:\Dysk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Serverbck - Copy\Messenger-Server\Messenger-Server\obj\Debug\Messenger-Server.pdb
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\obj\Debug\Messenger-Server.csprojAssemblyReference.cache
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\obj\Debug\Messenger_Server.Form.resources
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\obj\Debug\Messenger_Server.Properties.Resources.resources
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\obj\Debug\Messenger-Server.csproj.GenerateResource.cache
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\obj\Debug\Messenger-Server.csproj.CoreCompileInputs.cache
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\obj\Debug\Messenger-Server.exe
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\obj\Debug\Messenger-Server.pdb
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\bin\Debug\Messenger-Server.exe.config
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\bin\Debug\Messenger-Server.exe
+C:\Users\kozik\Desktop\KOMUNIKATOR\komunikator\Server\Messenger-Server\Messenger-Server\bin\Debug\Messenger-Server.pdb

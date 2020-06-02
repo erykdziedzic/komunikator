@@ -20,7 +20,7 @@ namespace Messenger_Server
         private string dialog_color = "#0078FF";
         private Dictionary<string, TcpClient> clientDict;
         private Dictionary<string, NetworkStream> clientStream;
-
+       
         // Bad words array:
         private readonly string[] bad_words = new string[] { "chuj","chuja", "chujek", "chuju", "chujem", "chujnia",
 "chujowy", "chujowa", "chujowe", "cipa", "cipę", "cipe", "cipą",
@@ -152,8 +152,8 @@ namespace Messenger_Server
         {
             InitializeComponent();
             ClearWebBrowser();
-            cb_clients.Items.Add("Wszyscy");
-            cb_clients.SelectedItem = "Wszyscy";
+            //cb_clients.Items.Add("Wszyscy");
+            //cb_clients.SelectedItem = "Wszyscy";
         }
 
         private void ClearWebBrowser()
@@ -351,7 +351,7 @@ namespace Messenger_Server
                             string nick = nick_reader.Substring(13);
                             clientStream.Add(nick, stream);
                             clientDict.Add(nick, client);
-                            cb_clients.Invoke(new MethodInvoker(delegate () { cb_clients.Items.Add(nick); }));
+                            //cb_clients.Invoke(new MethodInvoker(delegate () { cb_clients.Items.Add(nick); }));
                             var new_nick_writer = new BinaryWriter(stream);
                             foreach (KeyValuePair<string, NetworkStream> entry in clientStream)
                             {
@@ -437,7 +437,7 @@ namespace Messenger_Server
                     }
                     clientDict.Remove(nickname);
                     clientStream.Remove(nickname);
-                    cb_clients.Invoke(new MethodInvoker(delegate () {  cb_clients.Items.Remove(nickname);   }));
+                    //cb_clients.Invoke(new MethodInvoker(delegate () {  cb_clients.Items.Remove(nickname);   }));
                     client.Close();
                     SetText("Klient się rozłączył");
                 }
@@ -470,21 +470,21 @@ namespace Messenger_Server
             }
             if (server_listening && clientStream != null)
             {
-                if ((string)cb_clients.SelectedItem == "Wszyscy")
-                {
-                    WriteText("Ja", tb_edit.Text, dialog_color,true);
+                //if ((string)cb_clients.SelectedItem == "Wszyscy")
+                //{
+                    WriteText("Server", tb_edit.Text, dialog_color,true);
                     foreach (KeyValuePair<string, NetworkStream> entry in clientStream)
                     {
                         var writer = new BinaryWriter(entry.Value);
                         writer.Write("Serwer@@@" + tb_edit.Text);
                     }
-                }
-                else
-                {
-                    WriteText("(Prywatnie do "+ (string)cb_clients.SelectedItem + ") Ja", tb_edit.Text, dialog_color,true);
-                    var writer = new BinaryWriter(clientStream[(string)cb_clients.SelectedItem]);
-                    writer.Write("---PRIVATE---Serwer@@@" + tb_edit.Text);
-                }
+                //}
+                //else
+                //{
+                //    WriteText("(Prywatnie do "+ (string)cb_clients.SelectedItem + ") Ja", tb_edit.Text, dialog_color,true);
+                //    var writer = new BinaryWriter(clientStream[(string)cb_clients.SelectedItem]);
+                //    writer.Write("---PRIVATE---Serwer@@@" + tb_edit.Text);
+                //}
 
             }
             else
@@ -557,26 +557,6 @@ namespace Messenger_Server
             EnterBetweenTag("<br>");
         }
 
-        private void bHr_Click(object sender, EventArgs e)
-        {
-            EnterBetweenTag("<hr>");
-        }
-
-        private void bStrong_Click(object sender, EventArgs e)
-        {
-            EnterBetweenTag("<strong></strong>");
-        }
-
-        private void bEm_Click(object sender, EventArgs e)
-        {
-            EnterBetweenTag("<em></em>");
-        }
-
-        private void bSmall_Click(object sender, EventArgs e)
-        {
-            EnterBetweenTag("<small></small>");
-        }
-
         private void bDel_Click(object sender, EventArgs e)
         {
             EnterBetweenTag("<del></del>");
@@ -587,24 +567,14 @@ namespace Messenger_Server
             EnterBetweenTag("<ins></ins>");
         }
 
-        private void bSub_Click(object sender, EventArgs e)
+        private void n_port_ValueChanged(object sender, EventArgs e)
         {
-            EnterBetweenTag("<sub></sub>");
+
         }
 
-        private void bSup_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            EnterBetweenTag("<sup></sup>");
-        }
 
-        private void btn_changeColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog dig = new ColorDialog();
-            if (dig.ShowDialog() == DialogResult.OK)
-            {
-                dialog_color = "#"+(dig.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
-            }
-            SetText("Zmieniono kolor dymków!");
         }
     }
 }
