@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MessangerClient
@@ -162,9 +156,9 @@ namespace MessangerClient
 		{
 			this.InitializeComponent();
 			ClearWebBrowser();
-			cb_clients.Items.Add("Wszyscy");
-			cb_clients.Items.Add("Serwer");
-			cb_clients.SelectedItem = "Wszyscy";
+			//cb_clients.Items.Add("Wszyscy");
+			//cb_clients.Items.Add("Serwer");
+			//cb_clients.SelectedItem = "Wszyscy";
 		}
 
 		private void ClearWebBrowser()
@@ -223,7 +217,7 @@ namespace MessangerClient
 				wbConversation.Document.Body.ScrollIntoView(false);
 			}
 		}
-		private void WriteText(string who, string message, string color = "#0078FF", bool isMe=false)
+		private void WriteText(string who, string message, string color = "#0078FF", bool isMe = false)
 		{
 			// Check bad words
 			string[] new_message = message.Split(' ');
@@ -306,7 +300,7 @@ namespace MessangerClient
 				NetworkStream stream = this.client.GetStream();
 				this.reading = new BinaryReader(stream);
 				this.writing = new BinaryWriter(stream);
-				this.writing.Write("---WELCOME---"+tb_nickname.Text);
+				this.writing.Write("---WELCOME---" + tb_nickname.Text);
 				this.writing.Write("---START---");
 				this.SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Autoryzacja...");
 				this.activeCall = true;
@@ -335,35 +329,35 @@ namespace MessangerClient
 					if (message.Contains("---USERADD---"))
 					{
 						string new_nick = message.Substring(13);
-						if (!cb_clients.Items.Contains(new_nick))
-						{
-							cb_clients.Invoke(new MethodInvoker(delegate () { cb_clients.Items.Add(new_nick); }));
-						}
+						//if (!cb_clients.Items.Contains(new_nick))
+						//{
+						//	cb_clients.Invoke(new MethodInvoker(delegate () { cb_clients.Items.Add(new_nick); }));
+						//}
 					}
 					else if (message.Contains("---USERREMOVE---"))
 					{
 						string remove_nick = message.Substring(16);
-						if (cb_clients.Items.Contains(remove_nick))
-						{
-							cb_clients.Invoke(new MethodInvoker(delegate () { cb_clients.Items.Remove(remove_nick); }));
-						}
+						//if (cb_clients.Items.Contains(remove_nick))
+						//{
+						//	cb_clients.Invoke(new MethodInvoker(delegate () { cb_clients.Items.Remove(remove_nick); }));
+						//}
 					}
 					else if (message.Contains("---PRIVATE---"))
 					{
 						message = message.Substring(13);
 						string[] tmp_message = message.Split(new[] { "@@@" }, StringSplitOptions.None);
-						this.WriteText("(Prywatnie) "+tmp_message[0], tmp_message[1], "#fb3c4c");
+						this.WriteText("(Prywatnie) " + tmp_message[0], tmp_message[1], "#fb3c4c");
 					}
 					else
 					{
 						string[] tmp_message = message.Split(new[] { "@@@" }, StringSplitOptions.None);
-						if(tmp_message[0] == "Serwer")
+						if (tmp_message[0] == "Serwer")
 						{
 							this.WriteText(tmp_message[0], tmp_message[1], "#fb3c4c");
 						}
 						else
 						{
-							this.WriteText(tmp_message[0], tmp_message[1],dialog_color);
+							this.WriteText(tmp_message[0], tmp_message[1], dialog_color);
 						}
 					}
 				}
@@ -407,10 +401,10 @@ namespace MessangerClient
 				if (this.client != null)
 				{
 					this.writing.Write("---KONIEC---");
-					cb_clients.Items.Clear();
-					cb_clients.Items.Add("Wszyscy");
-					cb_clients.Items.Add("Serwer");
-					cb_clients.SelectedItem = "Wszyscy";
+					//cb_clients.Items.Clear();
+					//cb_clients.Items.Add("Wszyscy");
+					//cb_clients.Items.Add("Serwer");
+					//cb_clients.SelectedItem = "Wszyscy";
 					this.client.Close();
 				}
 				if (this.bwConversation != null && this.bwConversation.IsBusy)
@@ -435,16 +429,17 @@ namespace MessangerClient
 			}
 			if (this.bwConversation != null && this.bwConversation.IsBusy)
 			{
-				if (cb_clients.SelectedItem == "Wszyscy")
-				{
-					this.WriteText("Ja", this.tbEdit.Text, dialog_color,true);
-					this.writing.Write(tb_nickname.Text + "@@@" + this.tbEdit.Text);
-				}
-				else
-				{
-					this.WriteText("(Prywatnie do "+ (string)cb_clients.SelectedItem + ") Ja", this.tbEdit.Text, dialog_color,true);
-					this.writing.Write("---PRIVATE---"+tb_nickname.Text + "@@@"+ (string)cb_clients.SelectedItem +"@@@"+ this.tbEdit.Text);
-				}
+				this.WriteText("Ja", this.tbEdit.Text, dialog_color, true);
+				this.writing.Write(tb_nickname.Text + "@@@" + this.tbEdit.Text);
+				//if (cb_clients.SelectedItem == "Wszyscy")
+				//{
+
+				//}
+				//else
+				//{
+				//	this.WriteText("(Prywatnie do " + (string)cb_clients.SelectedItem + ") Ja", this.tbEdit.Text, dialog_color, true);
+				//	this.writing.Write("---PRIVATE---" + tb_nickname.Text + "@@@" + (string)cb_clients.SelectedItem + "@@@" + this.tbEdit.Text);
+				//}
 			}
 			else
 			{
@@ -467,7 +462,7 @@ namespace MessangerClient
 			{
 				this.tbEdit.Text = tbText.Insert(this.cursorPosition, tag);
 			}));
-			
+
 			if (tag == "<br>" || tag == "<hr>")
 			{
 				this.tbEdit.Invoke(new MethodInvoker(delegate ()
@@ -516,27 +511,7 @@ namespace MessangerClient
 
 		private void bBr_Click(object sender, EventArgs e)
 		{
-			this.EnterBetweenTag("<br>");
-		}
-
-		private void bHr_Click(object sender, EventArgs e)
-		{
-			this.EnterBetweenTag("<hr>");
-		}
-
-		private void bStrong_Click(object sender, EventArgs e)
-		{
-			this.EnterBetweenTag("<strong></strong>");
-		}
-
-		private void bEm_Click(object sender, EventArgs e)
-		{
-			this.EnterBetweenTag("<em></em>");
-		}
-
-		private void bSmall_Click(object sender, EventArgs e)
-		{
-			this.EnterBetweenTag("<small></small>");
+			this.EnterBetweenTag("<br />");
 		}
 
 		private void bDel_Click(object sender, EventArgs e)
@@ -549,24 +524,24 @@ namespace MessangerClient
 			this.EnterBetweenTag("<ins></ins>");
 		}
 
-		private void bSub_Click(object sender, EventArgs e)
+		private void label1_Click(object sender, EventArgs e)
 		{
-			this.EnterBetweenTag("<sub></sub>");
+
 		}
 
-		private void bSup_Click(object sender, EventArgs e)
+		private void label4_Click(object sender, EventArgs e)
 		{
-			this.EnterBetweenTag("<sup></sup>");
+
 		}
 
-		private void btn_changeColor_Click(object sender, EventArgs e)
+		private void tbIP_TextChanged(object sender, EventArgs e)
 		{
-			ColorDialog dig = new ColorDialog();
-			if (dig.ShowDialog() == DialogResult.OK)
-			{
-				dialog_color = "#" + (dig.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
-			}
-			SetText("[" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "]: Zmieniono kolor dymków!");
+
+		}
+
+		private void nudPort_ValueChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
