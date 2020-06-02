@@ -56,3 +56,13 @@ C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 -
 C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.GenerateResource.cache
 C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.exe
 C:\Users\Patryk\My Disk\Dysk\Przedmioty informatyczne\Aplikacje serwerowe\C#\6 - Messenger\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.pdb
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csprojAssemblyReference.cache
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Form1.resources
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.Properties.Resources.resources
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.GenerateResource.cache
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.csproj.CoreCompileInputs.cache
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.exe
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\obj\Debug\MessangerClient.pdb
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe.config
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.exe
+C:\Users\Eryk\Desktop\komunikator\Client\MessangerClient\MessangerClient\bin\Debug\MessangerClient.pdb
