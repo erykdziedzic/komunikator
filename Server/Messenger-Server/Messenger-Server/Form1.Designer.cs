@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelAddress = new System.Windows.Forms.Label();
             this.tb_ip = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.n_port = new System.Windows.Forms.NumericUpDown();
@@ -46,15 +46,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.n_port)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelAddress
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Address";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.labelAddress.AutoSize = true;
+            this.labelAddress.Location = new System.Drawing.Point(37, 35);
+            this.labelAddress.Name = "labelAddress";
+            this.labelAddress.Size = new System.Drawing.Size(60, 17);
+            this.labelAddress.TabIndex = 0;
+            this.labelAddress.Text = "Address";
+            this.labelAddress.Click += new System.EventHandler(this.label1_Click);
             // 
             // tb_ip
             // 
@@ -152,7 +152,7 @@
             // 
             this.bIns.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bIns.Location = new System.Drawing.Point(521, 594);
-            this.bIns.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bIns.Margin = new System.Windows.Forms.Padding(4);
             this.bIns.Name = "bIns";
             this.bIns.Size = new System.Drawing.Size(102, 39);
             this.bIns.TabIndex = 29;
@@ -164,7 +164,7 @@
             // 
             this.bDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bDel.Location = new System.Drawing.Point(411, 594);
-            this.bDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bDel.Margin = new System.Windows.Forms.Padding(4);
             this.bDel.Name = "bDel";
             this.bDel.Size = new System.Drawing.Size(102, 39);
             this.bDel.TabIndex = 28;
@@ -176,7 +176,7 @@
             // 
             this.bBr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bBr.Location = new System.Drawing.Point(267, 594);
-            this.bBr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bBr.Margin = new System.Windows.Forms.Padding(4);
             this.bBr.Name = "bBr";
             this.bBr.Size = new System.Drawing.Size(113, 39);
             this.bBr.TabIndex = 23;
@@ -188,7 +188,7 @@
             // 
             this.bItalic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bItalic.Location = new System.Drawing.Point(125, 592);
-            this.bItalic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bItalic.Margin = new System.Windows.Forms.Padding(4);
             this.bItalic.Name = "bItalic";
             this.bItalic.Size = new System.Drawing.Size(108, 39);
             this.bItalic.TabIndex = 22;
@@ -200,7 +200,7 @@
             // 
             this.bBold.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bBold.Location = new System.Drawing.Point(15, 592);
-            this.bBold.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bBold.Margin = new System.Windows.Forms.Padding(4);
             this.bBold.Name = "bBold";
             this.bBold.Size = new System.Drawing.Size(102, 39);
             this.bBold.TabIndex = 21;
@@ -226,7 +226,7 @@
             this.Controls.Add(this.n_port);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_ip);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelAddress);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form";
@@ -239,7 +239,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelAddress;
         private System.Windows.Forms.TextBox tb_ip;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown n_port;
