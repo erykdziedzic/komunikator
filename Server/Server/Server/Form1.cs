@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Messenger_Server
+namespace Server
 {
     public partial class Form : System.Windows.Forms.Form
     {

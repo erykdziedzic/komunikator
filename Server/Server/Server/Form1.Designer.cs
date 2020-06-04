@@ -1,4 +1,4 @@
-﻿namespace Messenger_Server
+﻿namespace Server
 {
     partial class Form
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Messenger_Server
+namespace Server
 {
     static class Program
     {
