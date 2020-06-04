@@ -99,6 +99,7 @@
             this.listBox_Console.Name = "listBox_Console";
             this.listBox_Console.Size = new System.Drawing.Size(608, 100);
             this.listBox_Console.TabIndex = 4;
+            this.listBox_Console.SelectedIndexChanged += new System.EventHandler(this.listBox_Console_SelectedIndexChanged);
             // 
             // buttonStart
             // 
@@ -144,7 +145,7 @@
             this.textBoxMessage.Name = "textBoxMessage";
             this.textBoxMessage.Size = new System.Drawing.Size(608, 101);
             this.textBoxMessage.TabIndex = 11;
-            this.textBoxMessage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbEdit_KeyPress);
+            this.textBoxMessage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMessage_KeyPress);
             // 
             // buttonIns
             // 
@@ -156,7 +157,7 @@
             this.buttonIns.TabIndex = 29;
             this.buttonIns.Text = "ins";
             this.buttonIns.UseVisualStyleBackColor = true;
-            this.buttonIns.Click += new System.EventHandler(this.bIns_Click);
+            this.buttonIns.Click += new System.EventHandler(this.buttonIns_Click);
             // 
             // buttonDel
             // 
@@ -168,7 +169,7 @@
             this.buttonDel.TabIndex = 28;
             this.buttonDel.Text = "del";
             this.buttonDel.UseVisualStyleBackColor = true;
-            this.buttonDel.Click += new System.EventHandler(this.bDel_Click);
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // buttonBr
             // 
@@ -180,7 +181,7 @@
             this.buttonBr.TabIndex = 23;
             this.buttonBr.Text = "br";
             this.buttonBr.UseVisualStyleBackColor = true;
-            this.buttonBr.Click += new System.EventHandler(this.bBr_Click);
+            this.buttonBr.Click += new System.EventHandler(this.buttonBr_Click);
             // 
             // buttonItalic
             // 
@@ -192,7 +193,7 @@
             this.buttonItalic.TabIndex = 22;
             this.buttonItalic.Text = "i";
             this.buttonItalic.UseVisualStyleBackColor = true;
-            this.buttonItalic.Click += new System.EventHandler(this.bItalic_Click);
+            this.buttonItalic.Click += new System.EventHandler(this.buttonItalic_Click);
             // 
             // buttonBold
             // 
@@ -204,7 +205,7 @@
             this.buttonBold.TabIndex = 21;
             this.buttonBold.Text = "b";
             this.buttonBold.UseVisualStyleBackColor = true;
-            this.buttonBold.Click += new System.EventHandler(this.bBold_Click);
+            this.buttonBold.Click += new System.EventHandler(this.buttonBold_Click);
             // 
             // Form
             // 

@@ -21,17 +21,11 @@ namespace Server
         private string Server_color = "#19FFB0";
         private Dictionary<string, TcpClient> clientDict;
         private Dictionary<string, NetworkStream> clientStream;
-       
-        
-
         public Form()
         {
             InitializeComponent();
             ClearWebBrowser();
-            //cb_clients.Items.Add("Wszyscy");
-            //cb_clients.SelectedItem = "Wszyscy";
         }
-
         private void ClearWebBrowser()
         {
             webBrowserMain.Navigate("about:blank");
@@ -39,7 +33,6 @@ namespace Server
             doc.Write(String.Empty);
             webBrowserMain.DocumentText = "<!DOCTYPE html> <html> <head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> </head> <body> </body></html>";
         }
-
         private void SetTextHTML(string text)
         {
             if (webBrowserMain.InvokeRequired)
@@ -55,7 +48,6 @@ namespace Server
                 webBrowserMain.Document.Write(text);
             }
         }
-
         private void WriteText(string who, string message, string color, bool isMe=false)
         {
 
@@ -74,13 +66,11 @@ namespace Server
               "<div style=\"float:right; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; margin-bottom: 15px; padding: 10px 15px 5px 15px; width: fit-content; flex-direction: column; background-color: "+color+";\">",
               "<div style=\"word-wrap: break-word;  \">",
               message,
-              "</div>",
-              "<div style=\"text-align: right; font-size: 13px; margin-right: 2px; margin-top: 5px; \">",
+              "</div>","<div style=\"text-align: right; font-size: 13px; margin-right: 2px; margin-top: 5px; \">",
               who,
               " o ",
               DateTime.Now.ToShortTimeString(),
-              "</div></div>",
-              "<div style=\"clear: both;\"></div>"
+              "</div></div>","<div style=\"clear: both;\"></div>"
                 }));
             }
             else
@@ -90,13 +80,11 @@ namespace Server
               "<div style=\"float:left; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; margin-bottom: 15px; padding: 10px 15px 5px 15px; width: fit-content; flex-direction: column; background-color: "+color+";\">",
               "<div style=\"word-wrap: break-word; \">",
               message,
-              "</div>",
-              "<div style=\"text-align: right; font-size: 13px; margin-right: 2px; margin-top: 5px; \">",
+              "</div>","<div style=\"text-align: right; font-size: 13px; margin-right: 2px; margin-top: 5px; \">",
               who,
               " o ",
               DateTime.Now.ToShortTimeString(),
-              "</div></div>",
-              "<div style=\"clear: both;\"></div>"
+              "</div></div>","<div style=\"clear: both;\"></div>"
                 }));
             }
             SetScroll();
@@ -107,10 +95,7 @@ namespace Server
             if (listBox_Console.InvokeRequired)
             {
                 Form.SetTextCallBack method = new Form.SetTextCallBack(SetText);
-                base.Invoke(method, new object[]
-                {
-                    text
-                });
+                base.Invoke(method, new object[]{text});
             }
             else
             {
@@ -158,13 +143,11 @@ namespace Server
                         }
                     }
                 }
-
                 SetText("Server closed");
                 buttonStart.Invoke(new MethodInvoker(delegate () { buttonStart.Text = "Start"; }));
                 clientDict = null;
                 clientStream = null;
             }
-
          }
 
         private void backgroundWorkerStartServer_DoWork(object sender, DoWorkEventArgs e)
@@ -180,7 +163,6 @@ namespace Server
                 SetText("Bad IP format");
                 return;
             }
-
             // Get port
             int port = System.Convert.ToInt16(numericUpDownPort.Value);
             buttonStart.Invoke(new MethodInvoker(delegate () { buttonStart.Text = "Stop"; }));
@@ -189,7 +171,6 @@ namespace Server
                 server_listening = true;
                 server = new TcpListener(adresIP, port);
                 server.Start();
-
                 while (server_listening)
                 {
                     if (server.Pending())
@@ -201,7 +182,6 @@ namespace Server
                             clientDict = new Dictionary<string, TcpClient>();
                             clientStream = new Dictionary<string, NetworkStream>();
                         }
-
                         NetworkStream stream = client.GetStream();
                         var nick_reader = new BinaryReader(stream).ReadString();
                         if (nick_reader.Contains("---WELCOME---"))
@@ -218,7 +198,6 @@ namespace Server
                                     new_nick_writer.Write("---USERADD---" + entry.Key);
                                 }
                             }
-
                             foreach (KeyValuePair<string, NetworkStream> entry in clientStream)
                             {
                                 if (entry.Key != nick)
@@ -240,8 +219,6 @@ namespace Server
                 MessageBox.Show(ex.ToString(), "error");
             }
         }
-
- 
         private void handleClient(string nickname)
         {
             TcpClient client = clientDict[nickname];
@@ -256,22 +233,6 @@ namespace Server
                     string message;
                     while ((message = reader.ReadString()) != "---KONIEC---")
                     {
-                        //if (message.Contains("---PRIVATE---"))
-                        //{
-                        //    message = message.Substring(13);
-                        //    string[] tmp_message = message.Split(new[] { "@@@" }, StringSplitOptions.None);
-                        //    if (tmp_message[1] == "Serwer")
-                        //    {
-                        //        WriteText("(Prywatnie) "+tmp_message[0], tmp_message[2], Client_color); 
-                        //    }
-                        //    else
-                        //    {
-                        //        var client_writer = new BinaryWriter(clientStream[tmp_message[1]]);
-                        //        client_writer.Write("---PRIVATE---"+tmp_message[0] + "@@@" + tmp_message[2]);
-                        //    }
-                        //}
-                        //else
-                        //{
                             string[] tmp_message = message.Split(new[] { "@@@" }, StringSplitOptions.None);
                             WriteText(tmp_message[0], tmp_message[1], Client_color);
                             foreach (KeyValuePair<string, NetworkStream> entry in clientStream)
@@ -282,8 +243,6 @@ namespace Server
                                     clients_writer.Write(tmp_message[0] + "@@@" + tmp_message[1]);
                                 }
                             }
-                        //}
-
                     }
                     foreach (KeyValuePair<string, NetworkStream> entry in clientStream)
                     {
@@ -295,14 +254,12 @@ namespace Server
                     }
                     clientDict.Remove(nickname);
                     clientStream.Remove(nickname);
-                    //cb_clients.Invoke(new MethodInvoker(delegate () {  cb_clients.Items.Remove(nickname);   }));
                     client.Close();
                     SetText("Client Disconnected");
                 }
                 catch
                 {
                     string last_value = listBox_Console.Items[listBox_Console.Items.Count - 1].ToString();
-
                     if (!last_value.Contains("Server closed"))
                     {
                         SetText("Client Disconnected");
@@ -315,9 +272,7 @@ namespace Server
                 SetText("Klient: [" + IP.ToString() + "] nie wykonał odpowiedniej autoryzacji! Błąd połączenia!");
                 client.Close();
             }
-          
         }
-
         private void send_btn_Click(object sender, EventArgs e)
         {
             if ((string.IsNullOrEmpty(textBoxMessage.Text) && string.IsNullOrWhiteSpace(textBoxMessage.Text)) || textBoxMessage.Text == "\r\n")
@@ -328,22 +283,12 @@ namespace Server
             }
             if (server_listening && clientStream != null)
             {
-                //if ((string)cb_clients.SelectedItem == "Wszyscy")
-                //{
                     WriteText("Server", textBoxMessage.Text, Server_color, true);
                     foreach (KeyValuePair<string, NetworkStream> entry in clientStream)
                     {
                         var writer = new BinaryWriter(entry.Value);
                         writer.Write("Serwer@@@" + textBoxMessage.Text);
                     }
-                //}
-                //else
-                //{
-                //    WriteText("(Prywatnie do "+ (string)cb_clients.SelectedItem + ") Ja", tb_edit.Text, dialog_color,true);
-                //    var writer = new BinaryWriter(clientStream[(string)cb_clients.SelectedItem]);
-                //    writer.Write("---PRIVATE---Serwer@@@" + tb_edit.Text);
-                //}
-
             }
             else
             {
@@ -358,22 +303,18 @@ namespace Server
             }
             textBoxMessage.Text = "";
         }
-
         private void EnterBetweenTag(string tag)
         {
             string tbText = textBoxMessage.Text;
-
             textBoxMessage.Invoke(new MethodInvoker(delegate ()
             {
                 textBoxMessage.Focus();
                 cursorPosition = textBoxMessage.SelectionStart;
             }));
-
             textBoxMessage.Invoke(new MethodInvoker(delegate ()
             {
                 textBoxMessage.Text = tbText.Insert(cursorPosition, tag);
             }));
-
             if (tag == "<br>" || tag == "<hr>")
             {
                 textBoxMessage.Invoke(new MethodInvoker(delegate ()
@@ -392,37 +333,37 @@ namespace Server
             }
         }
 
-        private void TbEdit_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxMessage_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
                 send_btn_Click(sender, e);
             }
         }
-
-        private void bBold_Click(object sender, EventArgs e)
+        private void buttonBold_Click(object sender, EventArgs e)
         {
             EnterBetweenTag("<b></b>");
         }
-
-        private void bItalic_Click(object sender, EventArgs e)
+        private void buttonItalic_Click(object sender, EventArgs e)
         {
             EnterBetweenTag("<i></i>");
         }
-
-        private void bBr_Click(object sender, EventArgs e)
+        private void buttonBr_Click(object sender, EventArgs e)
         {
             EnterBetweenTag("<br>");
         }
-
-        private void bDel_Click(object sender, EventArgs e)
+        private void buttonDel_Click(object sender, EventArgs e)
         {
             EnterBetweenTag("<del></del>");
         }
-
-        private void bIns_Click(object sender, EventArgs e)
+        private void buttonIns_Click(object sender, EventArgs e)
         {
             EnterBetweenTag("<ins></ins>");
+        }
+
+        private void listBox_Console_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
